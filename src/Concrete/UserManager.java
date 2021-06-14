@@ -1,20 +1,21 @@
 package Concrete;
 
+import Abstract.UserCheckService;
 import Abstract.UserService;
 import Entities.User;
 
 public class UserManager implements UserService{
 	
-	private UserCheckManager userCheckManager;
+	private UserCheckService userCheckService;
 
-	public UserManager(UserCheckManager userCheckManager) {
-		
-		this.userCheckManager = userCheckManager;
+	public UserManager(UserCheckService userCheckService) {
+		super();
+		this.userCheckService = userCheckService;
 	}
 
 	@Override
 	public void register(User user) {
-		if(userCheckManager.CheckIfRealPerson(user)==true) {
+		if(userCheckService.CheckIfRealPerson(user)==true) {
 			System.out.println("Dogrulandi sisteme devam edebilirsiniz");
 		}
 		else {

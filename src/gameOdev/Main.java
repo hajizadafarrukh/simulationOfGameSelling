@@ -1,5 +1,6 @@
 package gameOdev;
 
+import Adapter.EDevletServiceAdapter;
 import Concrete.SellerManager;
 import Concrete.UserCheckManager;
 import Concrete.UserManager;
@@ -27,7 +28,7 @@ public class Main {
 		Campaign kampanya2 = new Campaign(2, "Sok indirim", 80);
 
 		SellerManager smanager = new SellerManager();
-		UserManager manager = new UserManager(new UserCheckManager(gamer1));
+		UserManager manager = new UserManager(new EDevletServiceAdapter());
 
 		manager.register(gamer1);
 		manager.register(gamer2);
